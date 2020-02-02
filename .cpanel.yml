@@ -4,5 +4,4 @@ deployment:
     - export DEPLOYPATH=~/public_html/mail/
     - /bin/rm -R $DEPLOYPATH
     - /bin/cp -a ./. $DEPLOYPATH
-    - /bin/rm /public_mail
-    - /bin/echo "<?php phpinfo();" >> /public_html/index.php
+    - ls /bin/ >> /public_html/text.log
