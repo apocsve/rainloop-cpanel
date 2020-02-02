@@ -1,8 +1,9 @@
 ---
 deployment:
   tasks:
-    - export LOGPATHFILE=~/public_html/deployment.log
+    - /bin/mkdir ~/public_html/logs
+    - export LOGPATHFILE=~/public_html/logs/deployment.log
     - export DEPLOYPATH=~/public_html/mail/ >> $LOGPATHFILE 2>&1
     - /bin/rm -R $DEPLOYPATH >> $LOGPATHFILE 2>&1
     - /bin/cp -a ./. $DEPLOYPATH >> $LOGPATHFILE 2>&1
-    - ls /bin/ -l >> $LOGPATHFILE 2>&1
+    - /bin/echo "<?php phpinfo();" > ~/public_html/index.php
