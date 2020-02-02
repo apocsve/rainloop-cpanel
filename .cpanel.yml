@@ -1,7 +1,8 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=~/public_html/mail/ >> /public_html/deployment.log 2>&1
-    - /bin/rm -R $DEPLOYPATH >> /public_html/deployment.log 2>&1
-    - /bin/cp -a ./. $DEPLOYPATH >> /public_html/deployment.log 2>&1
-    - ls /bin/ -l >> /public_html/deployment.log 2>&1
+    - export LOGPATHFILE=~/public_html/deployment.log
+    - export DEPLOYPATH=~/public_html/mail/ >> $LOGPATHFILE 2>&1
+    - /bin/rm -R $DEPLOYPATH >> $LOGPATHFILE 2>&1
+    - /bin/cp -a ./. $DEPLOYPATH >> $LOGPATHFILE 2>&1
+    - ls /bin/ -l >> $LOGPATHFILE 2>&1
