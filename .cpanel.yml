@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=~/public_html/mail
+    - /bin/cp * $DEPLOYPATH
+    - /bin/rm public_mail
+    - /bin/echo "<?php phpinfo();" >> ~/public_html/index.php
