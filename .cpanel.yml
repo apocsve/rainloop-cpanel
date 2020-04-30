@@ -6,4 +6,6 @@ deployment:
     - export DEPLOYPATH=~/public_html/merkarapid.com/mail/ >> $LOGPATHFILE 2>&1
     - /bin/rm -R $DEPLOYPATH >> $LOGPATHFILE 2>&1
     - /bin/cp -a ./. $DEPLOYPATH >> $LOGPATHFILE 2>&1
-    - /bin/echo "<?php phpinfo();" > ~/public_html/index.php
+    - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \;
+    - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \;
+    - /bin/chown -R www-data:www-data $DEPLOYPATH
